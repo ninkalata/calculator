@@ -1,0 +1,482 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+        double FirstNumber;
+        double SecondNumber;
+        string Operation;
+        decimal MemoryStore = 0;
+        decimal EndResult = 0;
+      //  int buttonoffset;
+        public Form1()
+        {
+            InitializeComponent();
+           // buttonoffset = this.Width - n0.Width;
+        }
+
+        private void n0_Click(object sender, EventArgs e)
+        {
+
+            
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "0";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "0";
+            }
+        }
+
+        private void n1_Click(object sender, EventArgs e)
+        {
+            
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "1";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "1";
+            }
+        }
+
+        private void n2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "2";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "2";
+            }
+        }
+
+        private void n3_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "3";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "3";
+            }
+        }
+
+        private void n6_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "6";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "6";
+            }
+        }
+
+        private void n5_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "5";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "5";
+            }
+        }
+
+        private void n4_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "4";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "4";
+            }
+        }
+
+        private void n9_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "9";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "9";
+            }
+        }
+
+        private void n8_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "8";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "8";
+            }
+        }
+
+        private void n7_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0" && textBox1.Text != null)
+            {
+                textBox1.Text = "7";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "7";
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bdot_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + ".";
+        }
+
+        private void badd_Click(object sender, EventArgs e)
+        {
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "+";
+           
+        }
+
+        private void bsub_Click(object sender, EventArgs e)
+        {
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "-";
+        }
+
+        private void bmulti_Click(object sender, EventArgs e)
+        {
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "*";
+        }
+
+        private void bdiv_Click(object sender, EventArgs e)
+        {
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "/";
+        }
+
+        private void bequal_Click(object sender, EventArgs e)
+        {
+            double SecondNumber;
+            double Result;
+            //SecondNumber=textBox1.Text;
+            SecondNumber = Convert.ToDouble(textBox1.Text);
+
+            if (Operation == "+")
+            {
+                bHISTORY.Items.Add(FirstNumber + " + " + textBox1.Text + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+
+                Result = (FirstNumber + SecondNumber);
+                textBox1.Text = Convert.ToString(Result);
+                FirstNumber = Result;
+            }
+            if (Operation == "-")
+            {
+                bHISTORY.Items.Add(FirstNumber + " - " + textBox1.Text + "=" + (FirstNumber - double.Parse(textBox1.Text)));  
+               // bHISTORY.Items.Add(FirstNumber + " - " + textBox1.Text + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+                Result = (FirstNumber - SecondNumber);
+                textBox1.Text = Convert.ToString(Result);
+                FirstNumber = Result;
+            }
+            if (Operation == "*")
+            {
+                bHISTORY.Items.Add(FirstNumber + " * " + textBox1.Text + "=" + (FirstNumber * double.Parse(textBox1.Text)));  
+
+              //  bHISTORY.Items.Add(FirstNumber + " * " + SecondNumber + "=" + (SecondNumber + double.Parse(textBox1.Text)));  
+                Result = (FirstNumber * SecondNumber);
+                textBox1.Text = Convert.ToString(Result);
+                FirstNumber = Result;
+            }
+            if (Operation == "/")
+            {
+                bHISTORY.Items.Add(FirstNumber + " / " + textBox1.Text + "=" + (FirstNumber / double.Parse(textBox1.Text)));  
+
+             //   bHISTORY.Items.Add(FirstNumber + " / " + textBox1.Text + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+                if (SecondNumber == 0)
+                {
+                    textBox1.Text = "Cannot divide by zero";
+
+                }
+                else
+                {
+                    Result = (FirstNumber / SecondNumber);
+                    textBox1.Text = Convert.ToString(Result);
+                    FirstNumber = Result;
+                }
+            }
+            if (Operation == "%")
+            {
+                bHISTORY.Items.Add(FirstNumber + " % " + textBox1.Text + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+
+                Result = (Convert.ToDouble(FirstNumber) % Convert.ToDouble(SecondNumber));
+                textBox1.Text = Convert.ToString(Result);
+                FirstNumber = Result;
+            }
+           
+           
+        }
+
+        private void bc_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
+
+        private void bsq_Click(object sender, EventArgs e)
+        {
+          //  bHISTORY.Items.Add(FirstNumber + " % " + textBox1.Text + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "x2";
+            FirstNumber = (FirstNumber * FirstNumber);
+            bHISTORY.Items.Add(FirstNumber +  "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+            textBox1.Text = Convert.ToString(FirstNumber);
+            FirstNumber = FirstNumber;
+
+
+        }
+
+        private void bcub_Click(object sender, EventArgs e)
+        {
+            double Result;
+
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "x3";
+            Result = (FirstNumber * FirstNumber * FirstNumber);
+            bHISTORY.Items.Add(FirstNumber + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+            textBox1.Text = Convert.ToString(Result);
+            FirstNumber = Result;
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue < 48 || e.KeyValue > 57)
+                e.SuppressKeyPress = true;
+
+        }
+
+        private void bsuad_Click(object sender, EventArgs e)
+        {
+           
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = Convert.ToString(-Convert.ToInt32(textBox1.Text));
+            bHISTORY.Items.Add((textBox1.Text));  
+        }
+
+        private void ndiv_Click(object sender, EventArgs e)
+        {
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "%";
+        }
+
+        private void b1_Click(object sender, EventArgs e)
+        {
+            double Result;
+            FirstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = "0";
+            Operation = "1/x";
+            Result = (1.0 / FirstNumber);
+            textBox1.Text = Convert.ToString(Result);
+            FirstNumber = System.Math.Round(Result);
+            bHISTORY.Items.Add(" 1" + " / " + FirstNumber + "=" + (FirstNumber + double.Parse(textBox1.Text)));  
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            //n0.Width = getButtonWidth();
+           // n0.Height = this.Height - buttonoffset;
+           // n0.Text = "(" + this.Width + "," + this.Height + ")";
+         
+
+        }
+       
+
+        private void history_TextChanged(object sender, EventArgs e)
+        {
+           // history.AppendText(FirstNumber + "   " + SecondNumber + " =" + "\n");
+           // history.AppendText("\n\t" + textBox1.Text + "\n\n");
+           // history.Text = " ";
+        
+
+
+
+        }
+
+        private void bMC_Click(object sender, EventArgs e)
+        {
+            MemoryStore = 0;
+            memory.Items.Remove(textBox1.Text);
+            memory.Items.Remove(EndResult);
+        }
+
+        private void bMR_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = MemoryStore.ToString();
+           
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            memory.Items.Remove(textBox1.Text);
+            memory.Items.Remove(EndResult);
+            EndResult = EndResult + MemoryStore;
+            for (int i = 0; i < 1; i++)
+            {
+                
+                textBox1.Text = MemoryStore.ToString();
+                memory.Items.Add(EndResult);
+            }
+         
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            memory.Items.Remove(textBox1.Text);
+            memory.Items.Remove(EndResult);
+            EndResult = EndResult - MemoryStore;
+            for (int i = 0; i <1; i++)
+            {
+            
+                textBox1.Text = MemoryStore.ToString();
+                memory.Items.Add(EndResult);
+            }
+        }
+
+        private void bMS_Click(object sender, EventArgs e)
+        {
+           
+            MemoryStore = Decimal.Parse(textBox1.Text);
+            memory.Items.Add(textBox1.Text);  
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // foreach (Control ctrl in this.Controls)
+            //{
+            //  if (ctrl is Button)
+            // {
+            //  ctrl.Size = new Size(50, 50);
+            //this.Size
+            // }
+            // }
+
+
+        }
+        
+
+
+
+        private void bx_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
+            }
+            if (textBox1.Text == " ")
+            {
+                textBox1.Text = "0";
+            }
+
+
+        }
+
+        private void bdelete_Click(object sender, EventArgs e)
+        {
+            bHISTORY.Items.Clear();  
+            bHISTORY.Items.Add("There's no history yet");  
+            
+           
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bce_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = string.Empty;
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void scientific_Click(object sender, EventArgs e)
+        //{
+            
+        //        this.IsMdiContainer = true;
+        //        Form Form2 = new Form();
+        //        Form2.MdiParent = this;
+        //        Form2.Show();
+        //       // this.Hide();
+        //}
+      //  Form Form2 = new Form();
+        private void scientific_Click_1(object sender, EventArgs e)
+        {
+            //this.IsMdiContainer = true;
+            Form2 Formobj = new Form2();
+            //Form2.MdiParent = this;
+            Formobj.ShowDialog(this);
+           // Form2.Show();
+            
+
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+          
+            textBox1.Text = Convert.ToString(System.Math.Sqrt(Convert.ToDouble(textBox1.Text)));
+           // bHISTORY.Items.Add("sqrt(" + textBox1.Text + ") = " + textBox1.Text);  
+            bHISTORY.Items.Add( textBox1.Text);  
+        }
+
+        private void memory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        
+    }
+}
